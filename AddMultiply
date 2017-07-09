@@ -1,0 +1,33 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+class AddMultiply {
+	vector<int> myVector;
+ public:   
+    vector<int> makeExpression(int y){
+     	int i, j, k;
+        while(true)
+        {
+         	i = -1000;
+            j = 1000;
+            k = 1000;
+            
+            for( ; i<=1000; i++){
+             	if(i==0)
+                    i+=2;
+                for( ; j>=-1000; j--){
+                 if(j==1)
+                     j-=2;
+                    for( ; k>=-1000; k--){
+                     	if(k==1)
+                            k-=2;
+                        if(((i*j)-k) == y){
+                            myVector = {i, j, k};
+                            return myVector;
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
