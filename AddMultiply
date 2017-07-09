@@ -1,3 +1,8 @@
+/* Constraints: Had to run in 2 seconds and take up no more than
+ * 		256 mb of memory.
+ * Score: 194.25 out of 250 points
+ */
+
 #include<iostream>
 #include<vector>
 using namespace std;
