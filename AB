@@ -1,6 +1,7 @@
 /* Constraints: Had to run in 2 seconds and take up no more than
  * 		264 mb of memory.
  * Score: 75.01 out of 250 points (must have been too slow)
+ * Level: Easy
  */
  
 #include<iostream>
