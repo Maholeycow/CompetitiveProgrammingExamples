@@ -1,0 +1,29 @@
+/* Constraints: Had to run in 840 seconds and take up no more than
+ * 		64 mb of memory.
+ * Score: 172.54 out of 250 points
+ */
+ 
+#include<iostream>
+#include<vector>
+#include<cmath>
+using namespace std;
+class Aircraft{
+  
+public:
+    string nearMiss(vector <int> p1, vector <int> v1, vector <int> p2, vector <int> v2, int R)
+    {
+        vector<int>::iterator myIterator = p1.begin();
+        int pos1 = pow(pow(*myIterator, 2) + pow(*(myIterator+1), 2) + pow(*(myIterator+2), 2), 0.5);
+        myIterator = v1.begin();
+        int vec1 = pow(pow(*myIterator, 2) + pow(*(myIterator+1), 2) + pow(*(myIterator+2), 2), 0.5);
+        myIterator = p2.begin();
+        int pos2 = pow(pow(*myIterator, 2) + pow(*(myIterator+1), 2) + pow(*(myIterator+2), 2), 0.5);
+        myIterator = v2.begin();
+        int vec2 = pow(pow(*myIterator, 2) + pow(*(myIterator+1), 2) + pow(*(myIterator+2), 2), 0.5);
+        for(int i = 0; i < 10000000; i++){
+        	if(abs((pos1+vec1*i) - (pos2+vec2*i)) < R)
+           	 	return "YES";        
+        }    
+        return "NO";
+    }
+};
