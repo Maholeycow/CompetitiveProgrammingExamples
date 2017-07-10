@@ -1,0 +1,45 @@
+/* Constraints: Had to run in 840 seconds and take up no more than
+ * 		64 mb of memory.
+ * Score: 75.01 out of 250 points (I kept trying to compile my code with a simple syntax error, darn it!)
+ */
+ 
+ #include<iostream>
+#include<vector>
+#include<string>
+using namespace std;
+class AccountBalance{
+  	int returnVal;
+ public:
+    AccountBalance(){returnVal=0;}
+    int processTransactions(int startingBalance, vector<string> transactions)
+    {
+        string myStr={'\0'}, myStr2={'\0'};
+        int myInt;
+        vector<string>::iterator myIterator = transactions.begin();
+        while(myIterator!=transactions.end())
+        {
+         	myStr = *myIterator;
+            myIterator++;
+            int i=2, j=0;
+            while(myStr[i]!='\0'){
+                myStr2[j] += myStr[i];
+            	j++;
+                i++;
+            }
+            myInt = stoi(myStr2);
+            if(myStr[0] == 'C'){
+                helper(startingBalance, myInt, 1);
+            } else {
+                helper(startingBalance, myInt, 0);
+            }
+        }
+        return startingBalance;
+    }
+    void helper(int& starting, int sub, int dec)
+    {
+        if(dec==0)
+	     	starting-=sub;        	
+        else
+            starting+=sub;
+    }
+};
