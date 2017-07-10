@@ -1,0 +1,30 @@
+/* Constraints: Had to run in 2 seconds and take up no more than
+ * 		264 mb of memory.
+ * Score: 75.01 out of 250 points (must have been too slow)
+ */
+ 
+#include<iostream>
+using namespace std;
+class AB{
+  
+ public:
+    string createString(int N, int K)
+    {
+        string myStr = {'\0'};
+        char a = 'A';
+        char b = 'B';
+        
+        if(N<(K-N)*2)
+            return "";
+        
+        myStr+=a;
+        int num = (K-N)*2;
+        for(int i = 0; i<N-1; i++){
+         	if((num-i)%2 == 1)
+                myStr+=b;
+            else
+                myStr+=a;
+        }
+        return myStr;
+    }
+}; 
