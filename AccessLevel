@@ -1,0 +1,30 @@
+/* Constraints: Had to run in 840 seconds and take up no more than
+ * 		64 mb of memory.
+ * Score: 226.09 out of 250 points
+ */
+ 
+#include <iostream>
+#include <vector>
+using namespace std;
+class AccessLevel{
+ string returnString;
+ public:   
+    AccessLevel()
+    {
+        returnString = {'\0'};   
+    }
+    
+    string canAccess(vector<int> rights, int minPermission)
+    {
+        vector<int>::iterator myIterator = rights.begin();
+        while(myIterator!=rights.end())
+        {
+         	if(*myIterator<minPermission)
+                returnString+='D';
+            else
+                returnString+='A';
+            myIterator++;
+        }
+        return returnString;
+    }
+};
