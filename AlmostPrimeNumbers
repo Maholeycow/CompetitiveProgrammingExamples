@@ -1,0 +1,28 @@
+/* Constraints: Had to run in 840 seconds and take up no more than
+ * 		          64 mb of memory.
+ * Score: 241.33 out of 250 points
+ * Level: Easy
+ */
+ 
+using namespace std;
+class AlmostPrimeNumbers{
+
+ public:
+    int getNext(int m)
+    {
+      	m+=1;
+      	while(!helper(m))
+        {
+         	m++;   
+        }
+        return m;
+    }
+    bool helper(int n)
+    {
+        for(int i = 2; i<11; i++){
+            if(n%i == 0)
+            	return false;
+        }
+        return true;   
+    }
+};
