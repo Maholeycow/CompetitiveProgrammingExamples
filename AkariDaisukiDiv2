@@ -1,0 +1,33 @@
+/* Constraints: Had to run in 840 seconds and take up no more than
+ * 		64 mb of memory.
+ * Score: 166.46 out of 250 points
+ * Level: Easy
+ */
+ 
+#include<unordered_map>
+#include<iostream>
+#include<string>
+using namespace std;
+class AkariDaisukiDiv2{
+  	int returnInt;
+ public:
+    int countTuples(string S)
+    {
+        returnInt = 0;
+        unordered_map<char, int> myMap;
+        unordered_map<char, int>::iterator myIterator = myMap.begin();
+        int i = 0;
+        while(S[i]!='\0')
+        {	
+            myIterator = myMap.find(S[i]);
+            if(myIterator!=myMap.end() && myIterator->second == 1)
+                returnInt++;
+            else if(myIterator->second == 0)
+                myMap.emplace(S[i], 1); 
+            else
+                myMap.emplace(S[i], 5);
+            i++;
+        }
+        return returnInt;
+    }
+};
