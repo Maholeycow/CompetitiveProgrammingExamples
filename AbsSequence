@@ -1,0 +1,43 @@
+/* Constraints: Had to run in 2 seconds and take up no more than
+ * 		264 mb of memory.
+ * Score: 347.99 out of 500 points
+ * Level: Medium
+ */
+ 
+#include<iostream>
+#include<vector>
+#include<string>
+
+using namespace std;
+
+class AbsSequence{
+  	vector<string> returnStrVect;
+ public:
+    vector<string> getElements(string first, string second, vector<string> indices)
+    {
+        vector<string>::iterator myIterator = indices.begin();
+        vector<int> myIntVector;
+        int num = 0;
+        while(myIterator != indices.end())
+        {
+         	if(num<stoi(*myIterator))
+                num = stoi(*myIterator);
+        	myIterator++;
+        }
+        int x;
+        myIntVector.push_back(stoi(first));
+        myIntVector.push_back(stoi(second));
+        vector<int>::iterator myIntIterator = myIntVector.begin();
+        for(myIntIterator+=2; myIntIterator!=myIntVector.end(); myIntIterator++)
+        {
+            x = *(myIntIterator-2)-*(myIntIterator-1);
+            myIntVector.push_back(x);
+        }
+        myIterator=indices.begin();
+        while(myIterator!=indices.end())
+        {
+            returnStrVect.push_back(to_string(myIntVector.at(stoi(*(myIterator)))));
+        }
+        return returnStrVect;
+    }
+};
